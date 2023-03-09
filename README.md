@@ -1,10 +1,33 @@
-# Favorite Holiday 
+# Corresponding Node
 
-### Create a webpage that describes your favorite holiday destination. The webpage should include the following elements:
+### Write a correspondingNode function that takes in three DOM Elements. The first two parameters represent the root nodes of two different DOM trees. The third parameter is a node within the first DOM tree.
 
-- A heading (h1) with the name of the holiday destination
-- A paragraph that provides a brief overview of the destination
-- A line break between the heading and the paragraph
-- An ordered list that lists the top 5 attractions in the destination
-- An unordered list that lists the must-try foods in the destination
-- Text within the ordered and unordered lists should be bold (strong or b) and/or italicized (em or i) to emphasize important information.
+tree1 and tree2 have identical structures, meaning that every DOM node in tree1 has the same number of children as the corresponding DOM node in tree2
+
+The correspondingNode function should return the node in tree2 that corresponds to node from tree1. For simplicity, you can assume these trees always have the same structure and thus there is always a corresponding node.
+
+Sample Usage
+
+```
+dom1.innerHTML =
+<main>
+<h1>Heading</h1>
+<div>
+<h2>test1</h2>
+<p>test2 <em>emphasis</em></p>
+</div>
+</main>
+const dom2 = document.createElement('main');
+dom2.innerHTML =
+<article>
+<h1>Heading2</h1>
+<section>
+<img src="img.png" alt="image" />
+<h3>test5 <strong>strong</strong></h3>
+</section>
+</article>
+correspondingNode (dom1, dom2, dom1); // dom2
+correspondingNode(dom1, dom2, dom1.querySelector('h2')); // <img src="img.png" alt="image" />
+correspondingNode(dom1, dom2, dom1.querySelector('em')); // <strong>strong</strong>
+
+```
